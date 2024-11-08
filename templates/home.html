@@ -1,4 +1,4 @@
-
+<!-- 
 <html>
 <body>
     <div class="login">
@@ -64,4 +64,153 @@
        {{results}}
     </h2>
    <body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Background and general styling */
+        body {
+            background-color: #f3e5f5; /* Light pastel lavender */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Form container styling */
+        .form-container {
+            background-color: #fff3e0; /* Light pastel peach */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        /* Form title styling */
+        .form-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-title h1 {
+            font-size: 1.8rem;
+            color: #64b5f6; /* Light pastel blue */
+        }
+
+        /* Input field styling */
+        .form-control {
+            background-color: #e8f5e9; /* Light pastel green */
+            border: 1px solid #aed581; /* Soft green border */
+            border-radius: 8px;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #6a1b9a; /* Pastel purple */
+        }
+
+        /* Button styling */
+        .btn-primary {
+            width: 100%;
+            background-color: #81d4fa; /* Soft pastel blue */
+            border: none;
+            color: #37474f; /* Darker shade for text */
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #4fc3f7; /* Slightly darker blue on hover */
+        }
+
+        /* Result message styling */
+        .result-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #388e3c; /* Soft green */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+       <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <div class="form-title">
+                <h1>Diabetes Prediction Form</h1>
+                <p>Fill in the details below to get the prediction.</p>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Number of Pregnancies</label>
+                <input class="form-control" type="number" name="Pregnancies"
+                    placeholder="Enter Number of Pregnancies" min="0" max="17" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Glucose Level (mg/dL)</label>
+                <input class="form-control" type="number" name="Glucose"
+                    placeholder="Enter Glucose Level" min="70" max="800" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Blood Pressure (mmHg)</label>
+                <input class="form-control" type="number" name="BloodPressure"
+                    placeholder="Enter Blood Pressure" min="80" max="300" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Skin Thickness (mm)</label>
+                <input class="form-control" type="number" name="SkinThickness"
+                    placeholder="Enter Skin Thickness" min="1" max="100" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Insulin Level (µU/mL)</label>
+                <input class="form-control" type="number" name="Insulin"
+                    placeholder="Enter Insulin Level" min="2" max="400" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">BMI (Body Mass Index)</label>
+                <input class="form-control" type="number" step="0.1" name="BMI"
+                    placeholder="Enter BMI" min="15" max="100" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Diabetes Pedigree Function</label>
+                <input class="form-control" type="number" step="0.01" name="DiabetesPedigreeFunction"
+                    placeholder="Enter Diabetes Pedigree Function" min="0" max="2.5" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Age (Years)</label>
+                <input class="form-control" type="number" name="Age"
+                    placeholder="Enter Age" min="1" max="120" required />
+            </div>
+
+            <button class="btn btn-primary" type="submit">Predict Your Outcome</button>
+        </form>
+
+        <!-- Display the prediction result -->
+        <div class="result-message">
+            <h2>{{ results }}</h2>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

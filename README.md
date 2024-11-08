@@ -3,6 +3,9 @@
 ## Project Overview
 This project is a machine learning-based web application developed using Flask that predicts the likelihood of diabetes in patients based on their medical information. The main goal is to provide an accessible tool for early diabetes diagnosis, which can be useful in healthcare scenarios to aid in quick screening and potentially early detection.
 
+## UI of the project
+![Diabetes Prediction Web App](assets\Screenshot (17).png)
+
 ## Dataset
 The dataset used for this project is the PIMA Indian Diabetes Dataset. It contains the following features:
 
@@ -56,8 +59,6 @@ Maximum: 20+ (though very rare)
 - Machine Learning Libraries: scikit-learn, pandas, numpy
 - Data Handling: pandas, numpy
 - Deployment: Flask server
-#
-
 
 ## Model Building and Evaluation
 The following machine learning models were trained and evaluated:
