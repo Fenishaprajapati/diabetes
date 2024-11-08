@@ -10,8 +10,8 @@ class PredictPipeline:
 
     def predict(self, features):
         try:
-            model_path='artifact/model.pkl'
-            preprocessor_path='artifact/preprocessor.pkl'
+            model_path='artifacts/model.pkl'
+            preprocessor_path='artifacts/preprocessor.pkl'
             model=load_object(file_path=model_path)
             preprocessor=load_object(file_path=preprocessor_path)
             data_scaled=preprocessor.transform(features)
@@ -25,35 +25,38 @@ class PredictPipeline:
 
 
 class CustomData:
-    def __init__( self, gender: str, race_ethnicity: str, 
-                parental_level_of_education, lunch: str, 
-                test_preparation_course: str, reading_score: int, 
-                writing_score: int):
+    def __init__( self, Pregnancies: int, Glucose: int, 
+                BloodPressure:int, SkinThickness: int, 
+                Insulin: int, BMI: float, 
+                DiabetesPedigreeFunction: float, Age: int):
 
-        self.gender = gender
+        self.Pregnancies = Pregnancies
 
-        self.race_ethnicity = race_ethnicity
+        self.Glucose = Glucose
 
-        self.parental_level_of_education = parental_level_of_education
+        self.BloodPressure = BloodPressure
 
-        self.lunch = lunch
+        self.SkinThickness = SkinThickness
 
-        self.test_preparation_course = test_preparation_course
+        self.Insulin = Insulin
 
-        self.reading_score = reading_score
+        self.BMI = BMI
 
-        self.writing_score = writing_score
+        self.DiabetesPedigreeFunction = DiabetesPedigreeFunction
+
+        self.Age = Age
         
     def get_data_as_data_frame(self):
         try:
             custom_data_input_dict = {
-                "gender": [self.gender],
-                "race_ethnicity": [self.race_ethnicity],
-                "parental_level_of_education": [self.parental_level_of_education],
-                "lunch": [self.lunch],
-                "test_preparation_course": [self.test_preparation_course],
-                "reading_score": [self.reading_score],
-                "writing_score": [self.writing_score],
+                "Pregnancies": [self.Pregnancies],
+                "Glucose": [self.Glucose],
+                "BloodPressure": [self.BloodPressure],
+                "SkinThickness": [self.SkinThickness],
+                "Insulin": [self.Insulin],
+                "BMI": [self.BMI],
+                "DiabetesPedigreeFunction": [self.DiabetesPedigreeFunction],
+                "Age": [self.Age],
             }
 
             return pd.DataFrame(custom_data_input_dict)
