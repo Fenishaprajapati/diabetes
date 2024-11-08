@@ -1,0 +1,11 @@
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
+catboost
+xgboost
+dill
+Flask
+# -e .
+#whenever we write -e . it will automatically triggers the setup.py for the installations of this packages
