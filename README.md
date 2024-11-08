@@ -5,6 +5,8 @@ This project is a machine learning-based web application developed using Flask t
 
 ## UI of the project
 ![Diabetes Prediction Web App](assets\Screenshot (17).png)
+![Diabetes Prediction Web App](assets\Screenshot (17).png)
+
 
 ## Dataset
 The dataset used for this project is the PIMA Indian Diabetes Dataset. It contains the following features:
